@@ -7,7 +7,11 @@ class FlutterHmsGmsChecker {
       const MethodChannel('flutter_hms_gms_checker');
 
   static Future<bool> get isHmsAvailable async {
-    return await _channel.invokeMethod('isHmsAvailable');
+    try{
+      return await _channel.invokeMethod('isHmsAvailable');
+    }catch(e){
+      return false;
+    }
   }
 
   static Future<bool> get isGmsAvailable async {
