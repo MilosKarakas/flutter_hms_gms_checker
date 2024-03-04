@@ -44,9 +44,9 @@ class FlutterHmsGmsCheckerPlugin : FlutterPlugin, MethodCallHandler {
         var isAvailable = false
         try {
             if (context != null) {
-                var noClass = isClass("com.huawei.hms.api.HuaweiApiAvailability")
+                var classDoesExist = isClass("com.huawei.hms.api.HuaweiApiAvailability")
 
-            if (noClass == true) {
+            if (classDoesExist == false) {
                 return false
             }
 
