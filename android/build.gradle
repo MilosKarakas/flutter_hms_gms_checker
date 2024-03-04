@@ -50,4 +50,5 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.huawei.hms:hwid:4.0.0.300"
     implementation "com.google.android.gms:play-services-base:17.6.0"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.22"
 }

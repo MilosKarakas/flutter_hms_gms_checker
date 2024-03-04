@@ -44,14 +44,7 @@ class FlutterHmsGmsCheckerPlugin : FlutterPlugin, MethodCallHandler {
         var isAvailable = false
         try {
             if (context != null) {
-                var clazz: Class<*>? = null
-                var noClass = false
-                try {
-                    clazz = Class.forName("com.huawei.hms.api.HuaweiApiAvailability")
-                } catch (e: ClassNotFoundException) {
-                    e.printStackTrace()
-                    noClass = true
-                }
+                var noClass = isClass("com.huawei.hms.api.HuaweiApiAvailability")
 
             if (noClass == true) {
                 return false
@@ -74,6 +67,15 @@ class FlutterHmsGmsCheckerPlugin : FlutterPlugin, MethodCallHandler {
             isAvailable = com.google.android.gms.common.ConnectionResult.SUCCESS == result
         }
         return isAvailable
+    }
+
+    fun isClass(className: String?): Boolean {
+        return try {
+            Class.forName(className)
+            true
+        } catch (e: ClassNotFoundException) {
+            false
+        }
     }
 
 }
