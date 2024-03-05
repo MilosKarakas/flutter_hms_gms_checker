@@ -46,14 +46,14 @@ class FlutterHmsGmsCheckerPlugin : FlutterPlugin, MethodCallHandler {
             if (context != null) {
                 var classDoesExist = isClass("com.huawei.hms.api.HuaweiApiAvailability")
 
-            if (classDoesExist == false) {
-                return false
-            }
+                if (classDoesExist == false) {
+                    return false
+                }
 
-            val result = HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(context)
-            isAvailable = com.huawei.hms.api.ConnectionResult.SUCCESS == result
-        }
-        }catch(e: Exception){
+                val result = HuaweiApiAvailability.getInstance().isHuaweiMobileServicesAvailable(context)
+                isAvailable = com.huawei.hms.api.ConnectionResult.SUCCESS == result 
+            }
+        } catch(e: Exception) {
             println(e)
             return false
         }
